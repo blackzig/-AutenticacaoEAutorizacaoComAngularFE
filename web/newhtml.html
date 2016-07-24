@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login para o DefenseAgainstREST</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-hQpvDQiCJaD2H465dQfA717v7lu5qHWtDbWNPvaTJ0ID5xnPUlVXnKzq7b8YUkbN" crossorigin="anonymous" />
+        <link href="css/custom.css" rel="stylesheet">
+        <style type="text/css">
+            .ng-hide {
+                display: none;
+            }
+        </style>
+        <link href="css/app.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body ng-app="app" ng-controller="user">
+        <h1>Login</h1>
+        <label>Username</label><input ng-model="log.username"/>
+        <label>Password</label><input type="password" ng-model="log.password"/>
+        <a href="#" ng-click="login(log)">Login</a>
+
+
+        <div ng-controller="MaintCtrl as m">
+            <h3>Teste Para guardar valores na LocalStorage</h3>
+            <h5>Current LocalStorage value is = <em></em></h5>
+            <input type="text" ng-model="m.value">
+            <input type="button" value="update" ng-click="m.update(m.value)">
+        </div>
+
+        <div >
+            <ng-view>
+
+
+            </ng-view>
+        </div>
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-resource.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-cookies.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
+
+        <script src="scripts/app/app.js" type="text/javascript"></script>
+
+        <script src="scripts/services/urlMapService.js" type="text/javascript"></script>
+        <script src="scripts/services/GenericoService.js" type="text/javascript"></script>
+        <script src="scripts/services/localStorage.js" type="text/javascript"></script>
+
+        <script src="scripts/controllers/user.js" type="text/javascript"></script>
+        <script src="scripts/controllers/MaintCtrl.js" type="text/javascript"></script>
+        <script src="scripts/Roteamento/Roteamento.js" type="text/javascript"></script>
+        
+        
+
+    </body>
+</html>
