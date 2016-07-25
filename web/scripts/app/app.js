@@ -19,7 +19,7 @@ var app = angular.module('app', ["ngResource", "ngRoute", "ngCookies", "ngStorag
                 } else
                 if ($rootScope.usuarioLogado != null &&
                         rotasBloqueadasUsuariosComuns.indexOf($location.path()) != -1 &&
-                        $rootScope.usuarioLogado.admin == false) {
+                        $rootScope.usuarioLogado.papel != 'ADMIN') {
                     $location.path('/acessoNegado')
                 }
             });

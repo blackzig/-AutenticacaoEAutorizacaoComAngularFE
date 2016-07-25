@@ -3,13 +3,15 @@ app.controller('user', ["$scope", 'genericoService', 'usuariosService',
 
         $scope.usuario = {};
 
-        $scope.login = function (log) {
+        $scope.logarUser = function (log) {
             genericoService.backendLogin("user", "POST", log).then(sucessoLogin, erroLogin);
         };
 
         var sucessoLogin = function (data) {
-            $scope.usuario = data.data;
-            console.log($scope.usuario);
+            //$scope.usuario = data.data;
+            console.log(data.data);
+             usuariosService.validaLogin(data.data);
+             
             //$http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode('admin' + ':' + 'admin');
 //            var guardarNoLocalStorage = $scope.usuario.chave + ':' + $scope.usuario.papel;
 //            localStorage.updateAutorizacao(guardarNoLocalStorage);
@@ -19,8 +21,8 @@ app.controller('user', ["$scope", 'genericoService', 'usuariosService',
         };
 
 
-        $scope.logar = function (user) {
-            usuariosService.validaLogin(user);
-        };
+//        $scope.logar = function (user) {
+//            usuariosService.validaLogin(user);
+//        };
 
     }]);
