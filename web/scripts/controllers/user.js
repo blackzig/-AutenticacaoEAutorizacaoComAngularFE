@@ -1,5 +1,6 @@
-app.controller('user', ["$scope", 'genericoService', 'usuariosService',
-    function ($scope, genericoService, usuariosService) {
+app.controller('user', ["$scope", 'genericoService', 'usuariosService', 'localStorage',
+    'localStoragePapel',
+    function ($scope, genericoService, usuariosService, localStorage, localStoragePapel) {
 
         $scope.usuario = {};
 
@@ -10,11 +11,12 @@ app.controller('user', ["$scope", 'genericoService', 'usuariosService',
         var sucessoLogin = function (data) {
             //$scope.usuario = data.data;
             console.log(data.data);
-             usuariosService.validaLogin(data.data);
-             
-            //$http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode('admin' + ':' + 'admin');
-//            var guardarNoLocalStorage = $scope.usuario.chave + ':' + $scope.usuario.papel;
-//            localStorage.updateAutorizacao(guardarNoLocalStorage);
+            usuariosService.validaLogin(data.data);
+
+            var guardarNoLocalStorage = data.data.chave;
+            localStorage.updateAutorizacao(guardarNoLocalStorage);
+            var guardarNoLocalStoragePapel = data.data.papel;
+            localStoragePapel.updateAutorizacaoPapel(guardarNoLocalStoragePapel);
         };
         var erroLogin = function (data) {
             console.log('Erro ' + data);

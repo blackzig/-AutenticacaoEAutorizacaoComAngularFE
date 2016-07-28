@@ -5,7 +5,7 @@ var app = angular.module('app', ["ngResource", "ngRoute", "ngCookies", "ngStorag
         })
         .run(function ($rootScope, $location) {
             //Rotas que necessitam do login
-            var rotasBloqueadasUsuariosNaoLogados = ['/usuarios', '/livros'];
+            var rotasBloqueadasUsuariosNaoLogados = ['/usuarios', '/livros', '/produtos'];
             var rotasBloqueadasUsuariosComuns = ['/usuarios'];
 
             $rootScope.$on('$locationChangeStart', function () { //iremos chamar essa função sempre que o endereço for alterado

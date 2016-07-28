@@ -1,0 +1,24 @@
+<div class="container" style="padding-top:10px;" ng-init="initProduto();">
+    <h2> Produtos existentes </h2> <br/>
+
+    <table style="width:100%"  class="table table-hover">
+        <thead>
+            <tr>
+                <th><h3>ID</h3></th>
+                <th><h3>Nome</h3></th>
+                <th><h3>Preço</h3></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="produto in produtos">
+                <td>{{produto.id_produto}}</td>
+                <td>{{produto.product}}</td>
+                <td>{{produto.price}}</td>
+                <td ng-show="$root.usuarioLogado.papel == 'ADMIN'"> <button type="button" class="btn btn-danger">Excluir</button> </td>
+                <td ng-show="$root.usuarioLogado.papel == 'USER'"> <button type="button" class="btn btn-success">Comprar</button> </td>
+            </tr>
+        </tbody>
+
+    </table>
+
+</div>
