@@ -1,7 +1,7 @@
-app.service('localStorage', function (Acesso) {
+app.service('localStorageChave', function (Acesso) {
 
     this.value = Acesso.getDataAC();
-    this.latestData = function () {
+    this.latestDataAutorizacao = function () {
         return Acesso.getDataAC();
     };
     this.updateAutorizacao = function (val) {

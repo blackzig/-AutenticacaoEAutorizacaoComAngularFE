@@ -1,6 +1,5 @@
-app.controller('user', ["$scope", 'genericoService', 'usuariosService', 'localStorage',
-    'localStoragePapel',
-    function ($scope, genericoService, usuariosService, localStorage, localStoragePapel) {
+app.controller('user', ["$scope", 'genericoService', 'usuariosService', 'gravarLocalStorage',
+    function ($scope, genericoService, usuariosService, gravarLocalStorage, $location) {
 
         $scope.usuario = {};
 
@@ -11,15 +10,12 @@ app.controller('user', ["$scope", 'genericoService', 'usuariosService', 'localSt
         var sucessoLogin = function (data) {
             //$scope.usuario = data.data;
             console.log(data.data);
-            usuariosService.validaLogin(data.data);
-
-            var guardarNoLocalStorage = data.data.chave;
-            localStorage.updateAutorizacao(guardarNoLocalStorage);
-            var guardarNoLocalStoragePapel = data.data.papel;
-            localStoragePapel.updateAutorizacaoPapel(guardarNoLocalStoragePapel);
+            gravarLocalStorage.gravarLS(data.data);
+            usuariosService.validaLogin();
         };
         var erroLogin = function (data) {
-            console.log('Erro ' + data);
+            $scope.erro = JSON.parse(localStorage.getItem(data));
+            console.log('Erro2 ' + $scope.erro);
         };
 
 

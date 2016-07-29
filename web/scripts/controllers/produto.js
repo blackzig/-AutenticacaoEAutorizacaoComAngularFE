@@ -1,5 +1,5 @@
-app.controller('produto', ["$scope", 'genericoService',
-    function ($scope, genericoService) {
+app.controller('produto', ["$scope", 'genericoService', '$location', 'acessoNegado',
+    function ($scope, genericoService, $location, acessoNegado) {
 
 
         $scope.initProduto = function () {
@@ -7,17 +7,13 @@ app.controller('produto', ["$scope", 'genericoService',
         };
 
         var sucesso = function (data) {
-            console.log(data.data);
             $scope.produtos = data.data;
-
-//             console.log(data.data);
-//             usuariosService.validaLogin(data.data);
-//
-//            var guardarNoLocalStorage = data.data.chave;
-//            localStorage.updateAutorizacao(guardarNoLocalStorage);
         };
         var erro = function (data) {
             console.log('Erro ' + data);
+            acessoNegado.errosAcessoNegado();
+            //localStorage.clear();
+            //$location.path('/acessoNegado');
         };
 
     }]);

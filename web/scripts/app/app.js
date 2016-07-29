@@ -14,6 +14,13 @@ var app = angular.module('app', ["ngResource", "ngRoute", "ngCookies", "ngStorag
                  está no Array (rotasBloqueadasUsuariosNaoLogados) caso o usuário não esteja logado. Se o usuário estiver logado, iremos
                  validar se ele possui permissão para acessar os links no Array de strings 'rotasBloqueadasUsuariosComuns'
                  */
+
+                $rootScope.usuarioLogado = JSON.parse(localStorage.getItem('usuario'));
+
+//                var arr = JSON.parse( localStorage.getItem('usuario') );
+//                
+//                console.log("arr " + arr.email);
+
                 if ($rootScope.usuarioLogado == null && rotasBloqueadasUsuariosNaoLogados.indexOf($location.path()) != -1) {
                     $location.path('/acessoNegado');
                 } else

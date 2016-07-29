@@ -1,6 +1,6 @@
-app.service('genericoService', ['urlMapService', '$http', '$q', 'localStorage',
+app.service('genericoService', ['urlMapService', '$http', '$q', 'localStorageChave',
     'localStoragePapel',
-    function (urlMapService, $http, $q, localStorage, localStoragePapel) {
+    function (urlMapService, $http, $q, localStorageChave, localStoragePapel) {
         var servico = {};
         servico.backendLogin = function (controller, metodo, data, id) {
 
@@ -194,7 +194,7 @@ app.service('genericoService', ['urlMapService', '$http', '$q', 'localStorage',
                     return t
                 }}
 
-            var chave = localStorage.latestData();
+            var chave = localStorageChave.latestDataAutorizacao();
             console.log('chave ' + chave);
             var papel = localStoragePapel.latestDataPapel();
             console.log('papel ' + papel);

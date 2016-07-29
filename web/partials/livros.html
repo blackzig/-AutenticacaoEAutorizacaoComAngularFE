@@ -13,8 +13,8 @@
             <tr ng-repeat="livro in livros">
                 <td>{{livro.nome}}</td>
                 <td>{{livro.autor}}</td>
-                <td ng-show="$root.usuarioLogado.admin == true"> <button type="button" class="btn btn-danger">Excluir</button> </td>
-                <td ng-show="$root.usuarioLogado.admin == false"> <button type="button" class="btn btn-success">Comprar</button> </td>
+                <td ng-show="$root.usuarioLogado.papel == 'ADMIN'"> <button type="button" class="btn btn-danger">Excluir</button> </td>
+                <td ng-show="$root.usuarioLogado.papel == 'USER'"> <button type="button" class="btn btn-success">Comprar</button> </td>
             </tr>
         </tbody>
 
