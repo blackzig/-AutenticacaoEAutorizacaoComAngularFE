@@ -1,7 +1,7 @@
 var app = angular.module('app', ["ngResource", "ngRoute", "ngCookies", "ngStorage"])
         .constant("URL", {
-            "url": "http://localhost",
-            "porta": "9091"
+            "url": "https://localhost",
+            "porta": "8181"
         })
         .run(function ($rootScope, $location) {
             //Rotas que necessitam do login
