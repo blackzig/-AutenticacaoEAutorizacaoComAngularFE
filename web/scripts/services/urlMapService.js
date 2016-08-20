@@ -10,7 +10,7 @@ app.service('urlMapService', ['URL', function (URL) {
             if (!id || id === null)
                 id = "";
 
-            var controller = "/DefenseAgainstREST/{controller}/{id}".replace("{controller}", controller).replace("{id}", id);
+            var controller = "/AutenticacaoEAutorizacaoComAngularBE/{controller}/{id}".replace("{controller}", controller).replace("{id}", id);
             return mapeamento.getUrl() + controller;
         };
 

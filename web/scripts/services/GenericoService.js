@@ -89,15 +89,15 @@ app.service('genericoService', ['urlMapService', '$http', '$q', 'localStorageCha
                     }
                     return t
                 }}
-            
+
             $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode('admin' + ':' + 'admin');
-           // $http.defaults.headers.common['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
+            // $http.defaults.headers.common['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
             $http.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
             $http.defaults.headers.common['Access-Control-Allow-Headers'] = 'x-requested-with';
-            
+
             var deferred = $q.defer();
             $http({
-                method: metodo, 
+                method: metodo,
                 url: urlMapService.getController(controller.toLowerCase(), id),
                 data: $.param({"username": data.username, "password": data.password}),
                 headers: {'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'}
@@ -203,6 +203,9 @@ app.service('genericoService', ['urlMapService', '$http', '$q', 'localStorageCha
             console.log('papel ' + papel);
             $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode(chave + ':' + papel);
             $http.defaults.headers.common['Content-Type'] = 'application/json';
+            $http.defaults.headers.common['Access-Control-Allow-Headers'] = 'Content-Type';
+            $http.defaults.headers.common['Access-Control-Allow-Methods'] = 'GET,POST,PUT,DELETE';
+            $http.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
             console.log('controller ' + controller);
             console.log('metodo ' + metodo);
             var deferred = $q.defer();
